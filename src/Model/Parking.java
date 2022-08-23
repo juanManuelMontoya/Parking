@@ -15,6 +15,8 @@ public class Parking {
     }
 
     public int searchEmptyPosition(int puesto, Car car){
+        if (puesto == 10)
+            return 2;
         if (this.detallePuestos[puesto] == null){
             this.detallePuestos[puesto] = this.crearDetallePuesto(car);
             return 1;
@@ -26,6 +28,13 @@ public class Parking {
     private DetallePuesto crearDetallePuesto(Car car) {
         Date hrEntry = new Date();
         return new DetallePuesto(car, hrEntry.getHours(), 0);
+    }
+
+
+    /**
+     * Metodo para la salida de un vehiculo
+     * */
+    public void carOut(int placa) {
     }
 
     public boolean isAvailable() { return isAvailable; }

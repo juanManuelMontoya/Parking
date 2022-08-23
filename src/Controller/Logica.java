@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Car;
+import Model.Parking;
 
 import javax.swing.*;
 import java.util.List;
@@ -8,9 +9,9 @@ import java.util.List;
 public class Logica {
 
     Car car;
-
-
+    Parking parking;
     public void init() {
+        parking = new Parking(2000);
         int value = Integer.parseInt(JOptionPane.showInputDialog(this.getMenuText()));
 
         selectMenuItem(value);
@@ -22,7 +23,9 @@ public class Logica {
                 registerCar();
                break;
             case 2:
-                System.out.println("sisas2");
+                int placa = Integer.parseInt(JOptionPane.showInputDialog("ingrese la placa del auto que " +
+                        "va a salir"));
+                parking.carOut(placa);
                 break;
         }
     }
