@@ -26,9 +26,8 @@ public class Logica {
                 parking.registerCar(idplaca,color);
                break;
             case 2:
-                int placa = Integer.parseInt(JOptionPane.showInputDialog("ingrese la placa del auto que " +
-                        "va a salir"));
-                parking.carOut(placa);
+                String placa = JOptionPane.showInputDialog("ingrese la placa del auto queva a salir");
+                parking.carOut(placa,0);
                 break;
             default:
                 break;
