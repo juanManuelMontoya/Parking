@@ -1,50 +1,30 @@
 package Model;
 
+import java.util.Date;
+import java.util.List;
+
 public class Parking {
 
-    private String idCar;
-    private int hrEntry, hrExit;
     private double vlrHour;
+    DetallePuesto[] detallePuestos;
 
-    public Parking(String idCar, int hrEntry, int hrExit, double vlrHour) {
-        this.idCar = idCar;
-        this.hrEntry = hrEntry;
-        this.hrExit = hrExit;
+    public Parking(double vlrHour) {
         this.vlrHour = vlrHour;
+        this.detallePuestos = new DetallePuesto[10];
     }
 
-    @Override
-    public String toString() {
-        return "Parking{" +
-                "idCar='" + idCar + '\'' +
-                ", hrEntry=" + hrEntry +
-                ", hrExit=" + hrExit +
-                ", vlrHour=" + vlrHour +
-                '}';
+    public int searchEmptyPosition(int puesto, Car car){
+        if (this.detallePuestos[puesto] == null){
+            this.detallePuestos[puesto] = this.crearDetallePuesto(car);
+            return 1;
+        }else {
+            return searchEmptyPosition(puesto + 1, car);
+        }
     }
 
-    public String getIdCar() {
-        return idCar;
-    }
-
-    public void setIdCar(String idCar) {
-        this.idCar = idCar;
-    }
-
-    public int getHrEntry() {
-        return hrEntry;
-    }
-
-    public void setHrEntry(int hrEntry) {
-        this.hrEntry = hrEntry;
-    }
-
-    public int getHrExit() {
-        return hrExit;
-    }
-
-    public void setHrExit(int hrExit) {
-        this.hrExit = hrExit;
+    private DetallePuesto crearDetallePuesto(Car car) {
+        Date hrEntry = new Date();
+        return new DetallePuesto(car, hrEntry.getHours(), 0);
     }
 
     public double getVlrHour() {
