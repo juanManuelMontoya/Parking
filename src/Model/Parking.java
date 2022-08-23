@@ -7,6 +7,7 @@ public class Parking {
 
     private double vlrHour;
     DetallePuesto[] detallePuestos;
+    private boolean isAvailable;
 
     public Parking(double vlrHour) {
         this.vlrHour = vlrHour;
@@ -26,6 +27,10 @@ public class Parking {
         Date hrEntry = new Date();
         return new DetallePuesto(car, hrEntry.getHours(), 0);
     }
+
+    public boolean isAvailable() { return isAvailable; }
+
+    public void setAvailable(boolean available) { isAvailable = available; }
 
     public double getVlrHour() {
         return vlrHour;
