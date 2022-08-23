@@ -40,8 +40,15 @@ public class Parking {
 
         Car car = null;
         car = new Car(idCar,color);
+        if (searchEmptyPosition(0,car)==1){
+            JOptionPane.showMessageDialog(null,"Se registro exitoso");
+        }else{
+            JOptionPane.showMessageDialog(null,"El parqueadero esta lleno");
+        }
 
-        crearDetallePuesto(car);
+       for (int i=0;i<detallePuestos.length;i++){
+           System.out.println(detallePuestos[i].toString());
+       }
 
     }
 

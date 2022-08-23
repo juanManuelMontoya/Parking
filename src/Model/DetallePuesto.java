@@ -34,4 +34,16 @@ public class DetallePuesto {
     public void setHrExit(int hrExit) {
         this.hrExit = hrExit;
     }
+
+    @Override
+    public String toString() {
+        return "DetallePuesto{" +
+                "car=" + car +
+                ", hrEntry=" + hrEntry +
+                ", hrExit=" + hrExit +
+                '}';
+    }
 }
+
+
+

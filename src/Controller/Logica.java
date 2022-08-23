@@ -21,7 +21,7 @@ public class Logica {
             case 1:
                 String  idplaca = JOptionPane.showInputDialog("Ingrese la placa del auto que " +
                         "desea registrar");
-                String  color = JOptionPane.showInputDialog("Ingrese la placa del auto que " +
+                String  color = JOptionPane.showInputDialog("Ingrese el color del auto que " +
                         "desea registrar");
                 parking.registerCar(idplaca,color);
                break;
