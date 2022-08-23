@@ -8,7 +8,6 @@ import java.util.List;
 
 public class Logica {
 
-    Car car;
     Parking parking;
     public void init() {
         parking = new Parking(2000);
@@ -20,12 +19,18 @@ public class Logica {
     private void selectMenuItem(int value) {
         switch (value){
             case 1:
-                registerCar();
+                String  idplaca = JOptionPane.showInputDialog("Ingrese la placa del auto que " +
+                        "desea registrar");
+                String  color = JOptionPane.showInputDialog("Ingrese la placa del auto que " +
+                        "desea registrar");
+                parking.registerCar(idplaca,color);
                break;
             case 2:
                 int placa = Integer.parseInt(JOptionPane.showInputDialog("ingrese la placa del auto que " +
                         "va a salir"));
                 parking.carOut(placa);
+                break;
+            default:
                 break;
         }
     }
@@ -37,18 +42,5 @@ public class Logica {
                 "2. Salida auto";
     }
 
-    private void registerCar(){
-        String idCar="";
-        String color="";
 
-        try {
-
-            idCar=JOptionPane.showInputDialog("Ingrese la placa del vehículo");
-            color=JOptionPane.showInputDialog("Ingrese el color del vehículo");
-
-        } catch (NumberFormatException e) {
-
-        }
-
-    }
 }

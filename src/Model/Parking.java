@@ -1,5 +1,6 @@
 package Model;
 
+import javax.swing.*;
 import java.util.Date;
 import java.util.List;
 
@@ -30,12 +31,26 @@ public class Parking {
         return new DetallePuesto(car, hrEntry.getHours(), 0);
     }
 
+    /**
+     * Metodo para el registro del carro en detallePuesto
+     * @param idCar
+     * @param color
+     */
+    public void registerCar(String idCar,String color){
+
+        Car car = null;
+        car = new Car(idCar,color);
+
+        crearDetallePuesto(car);
+
+    }
 
     /**
      * Metodo para la salida de un vehiculo
      * */
     public void carOut(int placa) {
     }
+
 
     public boolean isAvailable() { return isAvailable; }
 
