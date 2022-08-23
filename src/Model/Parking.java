@@ -34,7 +34,26 @@ public class Parking {
     /**
      * Metodo para la salida de un vehiculo
      * */
-    public void carOut(int placa) {
+    public int carOut(String placa, int position) {
+        if (compareCarsID(placa, this.detallePuestos[position].getCar())){
+            this.detallePuestos[position] = null;
+            return 1;
+        }else{
+            return carOut(placa, position + 1);
+        }
+    }
+
+    /**
+     * Metodo para comparar una placa ingresada y las almacenadas en el array
+     * @param placa
+     * @param car
+     * @return
+     */
+    private Boolean compareCarsID(String placa, Car car){
+        if (car.getIdCar().equalsIgnoreCase(placa))
+            return true;
+
+        return false;
     }
 
     public boolean isAvailable() { return isAvailable; }
